@@ -5,6 +5,7 @@
   "author": "Josh Szmajda <joshsz@gmail.com>",
   "description": "A simple helpful robot for DCTech",
   "dependencies": {
+    "hubot-plusplus": "1.1.5",
     "hubot": "^2.12.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.1.4",
