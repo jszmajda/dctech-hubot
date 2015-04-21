@@ -6,4 +6,4 @@ module.exports = (robot) ->
   ]
   robot.respond /code of conduct/i, (res) ->
     res.send robot.codeOfConduct.join("\n")
-    res.send "Also available at #{process.env.HEROKU_URL}/code-of-conduct" if process.env.HEROKU_URL
+    res.send "Also available at #{process.env.HEROKU_URL}code-of-conduct" if process.env.HEROKU_URL
