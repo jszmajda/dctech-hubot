@@ -6,6 +6,7 @@ module.exports = (robot) ->
   robot.brain.data.activity_rooms ||= {}
 
   robot.hear /.*/i, (res) ->
+    console.log("message", res)
     room = res.room || "unknown"
     prior = robot.brain.data.activity_rooms[room] || 0
     robot.brain.data.activity_rooms[room] = prior + 1
