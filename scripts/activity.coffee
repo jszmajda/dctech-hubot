@@ -19,7 +19,7 @@ module.exports = (robot) ->
       num  = v[1]
       reply += "##{room}: #{num}\n"
 
-    res.reply reply
+    res.send reply
 
   robot.respond /roomreset/, (res) ->
     robot.brain.data.activity_rooms = {from: (new Date())}
