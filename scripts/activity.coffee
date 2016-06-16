@@ -17,7 +17,7 @@ module.exports = (robot) ->
     _.chain(data).pairs().sortBy( (v)-> v[1] ).reverse().each (v) ->
       room = v[0]
       num  = v[1]
-      reply += "#{room}: #{num}\n"
+      reply += "##{room}: #{num}\n"
 
     res.reply reply
 
