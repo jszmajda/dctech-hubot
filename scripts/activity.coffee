@@ -10,7 +10,6 @@ module.exports = (robot) ->
     room  = res.message.room                      || "unknown"
     prior = robot.brain.data.activity_rooms[room] || 0
     robot.brain.data.activity_rooms[room] = prior + 1
-    console.log("Set #{room} to #{prior + 1}")
 
   robot.respond /roomstats/, (res) ->
     data = robot.brain.data.activity_rooms
