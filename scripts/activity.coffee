@@ -14,12 +14,14 @@ module.exports = (robot) ->
 
   robot.respond /roomstats/, (res) ->
     data = robot.brain.data.activity_rooms
+    reply = ""
     _.chain(data).pairs().sortBy( (v)-> v[1] ).reverse().each (v) ->
       room = v[0]
       num  = v[1]
-      res.reply "##{room}: #{num}"
+      reply += "#{room}: #{num}\n"
+
+    res.reply reply
 
   robot.respond /roomreset/, (res) ->
     robot.brain.data.activity_rooms = {from: (new Date())}
     res.reply "OK"
-
