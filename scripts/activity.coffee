@@ -9,6 +9,9 @@ module.exports = (robot) ->
 
   robot.hear /.*/i, (res) ->
     room  = res.message.room                      || "unknown"
+    channels = robot.adapter.client.rtm.dataStore.channels
+    if channels.hasOwnProperty(room)
+      room = channels[room].name
     prior = robot.brain.data.activity_rooms[room] || 0
     robot.brain.data.activity_rooms[room] = prior + 1
 
@@ -18,6 +21,11 @@ module.exports = (robot) ->
     _.chain(data).pairs().sortBy( (v)-> v[1] ).reverse().each (v) ->
       room = v[0]
       num  = v[1]
+      channels = robot.adapter.client.rtm.dataStore.channels
+      # robot.adapter.client.rtm.dataStore.channels[room].name
+      if channels.hasOwnProperty(room)
+        room = channels[room].name
+
       reply += "##{room}: #{num}\n"
 
     res.send reply
