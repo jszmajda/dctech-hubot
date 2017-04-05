@@ -20,7 +20,7 @@ module.exports = (robot) ->
     robot.brain.data.seen_emoji[emoji] = previous_seen + 1
     robot.logger.error "I just saw this emoji: #{emoji} and now I've seen #{robot.brain.data.seen_emoji[emoji]} of them"
 
-  robot.respond /what's the tally\?/, (res) ->
+  robot.respond /emojitown/, (res) ->
     robot.logger.error "I was asked the tally"
 
     res.reply "Top Emoji:"
