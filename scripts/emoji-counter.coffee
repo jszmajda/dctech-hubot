@@ -16,7 +16,7 @@ module.exports = (robot) ->
     emoji = res.match[1]
     previous_seen = seen_emoji[emoji] || 0
     seen_emoji[emoji] = previous_seen + 1
-    res.reply "Hey boss, you sent this emoji: #{emoji}, I've now seen #{seen_emoji[emoji]}"
+    #res.reply "Hey boss, you sent this emoji: #{emoji}, I've now seen #{seen_emoji[emoji]}"
 
 
   # robot.hear /badger/i, (res) ->
