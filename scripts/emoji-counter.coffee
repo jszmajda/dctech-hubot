@@ -23,8 +23,7 @@ module.exports = (robot) ->
   robot.respond /emojitown/, (res) ->
     robot.logger.error "I was asked the tally"
 
-    res.reply "Top Emoji:"
-    response = ""
+    response = "Top Emoji:\n"
     # [ [emoji,count], [emoji, count] ]
     _.chain(robot.brain.data.seen_emoji).pairs().sortBy( (v) -> v[1] ).reverse().each (v) ->
       emoji = v[0]
