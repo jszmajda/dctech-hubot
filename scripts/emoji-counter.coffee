@@ -17,8 +17,10 @@ module.exports = (robot) ->
     emoji = res.match[1].toLowerCase()
     previous_seen = robot.brain.data.seen_emoji[emoji] || 0
     robot.brain.data.seen_emoji[emoji] = previous_seen + 1
+    robot.logger.debug "I just saw this emoji: #{emoji} and now I've seen #{robot.brain.data.seen_emoji[emoji]} of them"
 
   robot.respond /what's the tally\?/, (res) ->
+    robot.logger.debug "I was asked the tally"
 
     res.reply "Top Emoji:"
     response = ""
@@ -28,6 +30,7 @@ module.exports = (robot) ->
       uses = v[1]
       response += "#{emoji} - #{uses}\n"
 
+    robot.logger.debug "here's the response: #{response}"
     res.reply response
 
   # robot.hear /badger/i, (res) ->
