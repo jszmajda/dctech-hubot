@@ -8,16 +8,27 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+_ = require('underscore')
 module.exports = (robot) ->
 
-  seen_emoji = {}
+  robot.brain.data.seen_emoji ||= {}
 
   robot.hear /(:.*:)/, (res) ->
-    emoji = res.match[1]
-    previous_seen = seen_emoji[emoji] || 0
-    seen_emoji[emoji] = previous_seen + 1
-    #res.reply "Hey boss, you sent this emoji: #{emoji}, I've now seen #{seen_emoji[emoji]}"
+    emoji = res.match[1].toLowerCase()
+    previous_seen = robot.brain.data.seen_emoji[emoji] || 0
+    robot.brain.data.seen_emoji[emoji] = previous_seen + 1
 
+  robot.respond /what's the tally\?/, (res) ->
+
+    res.reply "Top Emoji:"
+    response = ""
+    # [ [emoji,count], [emoji, count] ]
+    _.chain(robot.brain.data.seen_emoji).pairs().sortBy( (v) -> v[1] ).reverse().each (v) ->
+      emoji = v[0]
+      uses = v[1]
+      response += "#{emoji} - #{uses}\n"
+
+    res.reply response
 
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
