@@ -12,7 +12,7 @@ module.exports = (robot) ->
 
   robot.respond /.*(breathe|pause|break)/i, (res) ->
     word = res.random ['conversation', 'debate', 'discussion']
-    verb = res.random ['getting heated', 'boiling over', 'needs a breather', 'could use a moment to cool down']
+    verb = res.random ['is getting heated', 'is boiling over', 'needs a breather', 'could use a moment to cool down']
 
     selection = res.random [
       ["a cute parenting moment", "https://g.redditmedia.com/zg_jnZa8EY73SaKM7oaTg49uum9RDVVH-ini2UTYQlo.gif?w=614&fm=mp4&mp4-fragmented=false&s=8f0dd7330f5e7ba20876c717982a4c6c"],
@@ -41,4 +41,4 @@ module.exports = (robot) ->
     ]
     thing = selection[0]
     url = selection[1]
-    res.send "This #{word} is #{verb}, lets all take 10 and then come back to it\nHere's #{thing} to enjoy during the break:\n#{url}"
+    res.send "This #{word} #{verb}, lets all take 10 and then come back to it\nHere's #{thing} to enjoy during the break:\n#{url}"
