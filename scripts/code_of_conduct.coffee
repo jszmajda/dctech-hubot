@@ -17,11 +17,19 @@ module.exports = (robot) ->
     selection = res.random [
       ["a cute parenting moment", "https://g.redditmedia.com/zg_jnZa8EY73SaKM7oaTg49uum9RDVVH-ini2UTYQlo.gif?w=614&fm=mp4&mp4-fragmented=false&s=8f0dd7330f5e7ba20876c717982a4c6c"],
       ["a cute kid and dog", "https://i.imgur.com/sAu7VoV.jpg"],
-      ["a heartwarming rescue", "https://i.imgur.com/A6ap8sw.mp4"],
       ["a melty bird", "https://i.imgur.com/XZN0lDx.jpg"],
+      ["some festive cuteness", "https://i.imgur.com/DKAcxzk.jpg"],
+      ["a cute doggo and her toy", "https://i.redd.it/figdnt37g2dy.jpg"],
+      ["a cat all grown up", "https://i.imgur.com/arVW3Ie.jpg"],
+      ["a squishy cat", "https://i.imgur.com/4FpNvS6.jpg"],
+      ["a heartwarming moment", "https://i.redd.it/yhp89qgk2b5y.jpg"],
+      ["business cat", "https://i.redd.it/esj6kphagqpy.jpg"],
+      ["a happy family", "https://i.imgur.com/cfkVhSg.jpg"]
+    ]
+    ugh_videos = [
+      ["a heartwarming rescue", "https://i.imgur.com/A6ap8sw.mp4"],
       ["a lovey husky", "https://i.imgur.com/Sfh711A.mp4"],
       ["an awesome lizard interaction", "https://i.imgur.com/hldiOJk.mp4"],
-      ["some festive cuteness", "https://i.imgur.com/DKAcxzk.jpg"],
       ["some boppy cats", "https://i.imgur.com/qecLpkU.mp4"],
       ["a rare tree doggo", "https://i.imgur.com/n5yN6Uo.mp4"],
       ["an amazing wat moment", "https://i.imgur.com/kNmuYXB.mp4"],
