@@ -41,4 +41,4 @@ module.exports = (robot) ->
     ]
     thing = selection[0]
     url = selection[1]
-    res.send "This #{word} is #{verb}, lets all take 10 and then come back to it\nHere's #{thing} to enjoy during the break", url
+    res.send "This #{word} is #{verb}, lets all take 10 and then come back to it\nHere's #{thing} to enjoy during the break:\n#{url}"
