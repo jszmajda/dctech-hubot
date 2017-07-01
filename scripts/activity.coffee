@@ -5,8 +5,17 @@
 _ = require('underscore')
 
 cleanUpBrain = (robot) ->
-  #dat = robot.brain.data
-  #
+  robot.logger.info "Cleaning my brain"
+  dat = robot.brain.data
+
+  users = dat.users
+  if users
+    for uid of users
+      users[uid].slack = {}
+
+    dat.users = users
+
+  robot.brain.data = dat
 
 
 FLOOD_TIME = 5 # minutes
@@ -27,7 +36,7 @@ floodProtect = (robot, room, msg) ->
   fr[room] = dat
   robot.brain.data.flood_rooms = fr
 
-  console.log("#{user}: #{keep.length}")
+  robot.logger.info("#{user}: #{keep.length}")
   if keep.length > FLOOD_TRIP
     msg.reply "Hey there! You've tripped my flood protection system. Please refrain from posting more than #{FLOOD_TRIP} messages within #{FLOOD_TIME} minutes. I will continue to be annoying if you persist :). Thanks!"
 
@@ -38,7 +47,9 @@ module.exports = (robot) ->
   robot.brain.data.activity_rooms ||= {from: (new Date())}
 
   robot.hear /.*/i, (res) ->
-    cleanUpBrain(robot) if res.random(100) == 10
+    if Math.random() > 0.90
+      cleanUpBrain(robot)
+
     return unless robot.adapter.client && robot.adapter.client.rtm
     room  = res.message.room                      || "unknown"
     channels = robot.adapter.client.rtm.dataStore.channels
