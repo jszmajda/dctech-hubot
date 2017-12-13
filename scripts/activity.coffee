@@ -19,7 +19,7 @@ cleanUpBrain = (robot) ->
 
 
 FLOOD_TIME = 5 # minutes
-FLOOD_TRIP = 10 # messages
+FLOOD_TRIP = 20 # messages
 floodProtect = (robot, room, msg) ->
   exp = (new Date()) - (FLOOD_TIME * 60 * 1000)
   user = "" + msg.message.user.name
@@ -59,6 +59,8 @@ module.exports = (robot) ->
     robot.brain.data.activity_rooms[room] = prior + 1
 
     if room == "politics-discussion"
+      console.log(res.message)
+      console.log(channels[room])
       floodProtect(robot, room, res)
 
   robot.respond /roomstats/, (res) ->
