@@ -20,7 +20,7 @@
     "hubot-shipit": "^0.1.2",
     "hubot-slack": "^4.0.1",
     "hubot-youtube": "^0.1.2",
-    "underscore": "~1.8.3"
+    "underscore": "~1.12.1"
   },
   "engines": {
     "node": "11.10"
